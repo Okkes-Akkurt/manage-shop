@@ -25,7 +25,7 @@ const AddStore = () => {
 	const [ stores, setStores ] = useState(initialValues);
 
 	useEffect(() => {
-		const storedStores = JSON.parse(localStorage.getItem('stores')) || [];
+		const storedStores = JSON.parse(localStorage.getItem('stores')) || initialValues;
 		setStores(storedStores);
 
 	}, [stores])
