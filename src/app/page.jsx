@@ -85,7 +85,7 @@ const Home =  () => {
 				<div className='bg-green-500 text-white text-center p-2 mb-4 rounded'>{successMessage}</div>
 			)}
 			<div className='flex flex-col items-center min-w-full '>
-				<table className='min-w-full text-left text-sm font-light bg-white border border-gray-200 table-fixed overflow-x-auto'>
+				<table className='min-w-full text-left text-sm font-light bg-white border border-gray-200 table-fixed'>
 					<thead>
 						<tr>
 							<th className='p-3 border-b'>
