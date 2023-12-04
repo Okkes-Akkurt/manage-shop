@@ -8,7 +8,6 @@ const Home = () => {
 	if (typeof window !== 'undefined') {
 		var storedData = JSON.parse(localStorage.getItem('stores')) || [];
 	}
-	let storedData = JSON.parse(localStorage.getItem('stores')) || [];
 	const [stores, setStores] = useState(storedData);
 	const [selectedStore, setSelectedStore] = useState(null);
 	const [updatedStore, setUpdatedStore] = useState(selectedStore);
