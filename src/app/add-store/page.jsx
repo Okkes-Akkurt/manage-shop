@@ -1,62 +1,47 @@
-'use client'
+'use client';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const AddStore = () => {
-
-
-
 	const [stores, setStores] = useState([]);
 
 	useEffect(() => {
-		const storedStores = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('stores')) ||[];
+		const storedStores = (typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('stores'))) || [];
 		if (Array.isArray(storedStores)) {
 			setStores(storedStores);
 		}
 	}, []);
-
-
 
 	const handleOutsideSubmit = (values, e) => {
 		e.preventDefault();
 
 		formik.handleSubmit();
 
-		if (formik.isValid) {
-			const newId = stores.length;
+		const newId = stores.length;
 
-			const valuesWithId = {
-				...values,
-				id: newId,
-			};
+		const valuesWithId = {
+			...values,
+			id: newId,
+		};
 
-			const isStoreExist = stores.some((store) => store.storeName === values.storeName);
+		const isStoreExist = stores.some((store) => store.storeName === values.storeName);
 
-			if (isStoreExist) {
-				console.log('Mağaza zaten mevcut!');
-				alert('Bu mağaza zaten var!');
-			} else {
-				setStores((prevStores) => {
-					const updatedStores = [...prevStores, valuesWithId];
-					localStorage.setItem('stores', JSON.stringify(updatedStores));
-					return updatedStores;
-				});
-				console.log('Bir mağaza eklendi:', valuesWithId);
-				alert('Bir mağaza eklendi.');
-				formik.resetForm();
-			}
+		if (isStoreExist) {
+			console.log('Mağaza zaten mevcut!');
+			alert('Bu mağaza zaten var!');
 		} else {
-			console.log('Lütfen tüm alanları doldurun!');
-			alert('Lütfen tüm alanları doldurun!');
+			setStores((prevStores) => {
+				const updatedStores = [...prevStores, valuesWithId];
+				localStorage.setItem('stores', JSON.stringify(updatedStores));
+				return updatedStores;
+			});
+			console.log('Bir mağaza eklendi:', valuesWithId);
+			alert('Bir mağaza eklendi.');
+			formik.resetForm();
 		}
 	};
-
-
-
-
-
 
 	const formik = useFormik({
 		initialValues: {
@@ -82,15 +67,12 @@ const AddStore = () => {
 		}),
 		onSubmit: (values) => {
 			handleOutsideSubmit(values);
-
 		},
 		validateOnBlur: false,
-		validateOnChange:false
+		validateOnChange: false,
 	});
 
-
 	const stateOptions = [...new Set([...stores.map((store) => store.state), formik.values.state])].filter(Boolean);
-
 
 	const handleStateChange = (selectedState) => {
 		formik.setFieldValue('state', selectedState);
@@ -304,7 +286,6 @@ const AddStore = () => {
 			</div>
 		</div>
 	);
-
 };
 
 export default AddStore;
