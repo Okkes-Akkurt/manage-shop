@@ -17,7 +17,6 @@ const initialValues = {
 };
 
 
-	let storedData = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
 
 
 	const [stores, setStores] = useState(initialValues);
@@ -34,7 +33,7 @@ const initialValues = {
 	const [ filterPrimeRate, setFilterPrimeRate ] = useState('');
 
 	useEffect(() => {
-		 storedData = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
+		 const storedData = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
 		setStores(storedData);
 	}, [stores]);
 

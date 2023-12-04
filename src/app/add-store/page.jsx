@@ -8,7 +8,6 @@ const AddStore = () => {
 
 
 
-	let storedStores = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
 
 	const initialValues= {
 			id: '',
@@ -26,7 +25,7 @@ const AddStore = () => {
 	const [ stores, setStores ] = useState(initialValues);
 
 	useEffect(() => {
-		storedStores = JSON.parse(localStorage.getItem('stores')) || [];
+		const storedStores = JSON.parse(localStorage.getItem('stores')) || [];
 		setStores(storedStores);
 
 	}, [stores])
