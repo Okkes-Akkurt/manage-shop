@@ -87,7 +87,7 @@ const AddStore = () => {
 		validateOnChange: false,
 	});
 
-	const stateOptions = [...new Set([...stores.map((store) => store.state), formik.values.state])].filter(Boolean);
+	const stateOptions = [...new Set([...stores?.map((store) => store.state), formik.values.state])].filter(Boolean);
 
 
 	const handleStateChange = (selectedState) => {
