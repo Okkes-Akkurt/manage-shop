@@ -6,7 +6,11 @@ import { useState } from 'react';
 
 const AddStore = () => {
 
-	const storedStores = JSON.parse(localStorage.getItem('stores')) || [];
+
+	if (typeof window !== 'undefined') {
+		var storedStores = JSON.parse(localStorage.getItem('stores')) || [];
+	}
+
 
 	const [ stores, setStores ] = useState(storedStores);
 
