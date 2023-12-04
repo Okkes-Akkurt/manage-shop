@@ -23,7 +23,7 @@ const Home =  async() => {
 	const [ filterPrimeRate, setFilterPrimeRate ] = useState('');
 
 	useEffect(() => {
-		const storedData = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('stores'));
+		const storedData = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('stores')) ||[];
 		if (storedData !== null) {
 			setStores(storedData);
 		}
