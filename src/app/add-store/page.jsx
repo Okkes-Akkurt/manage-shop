@@ -8,7 +8,7 @@ const AddStore = () => {
 
 
 
-	const storedStores = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
+	let storedStores = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
 
 	initialValues= {
 			id: '',

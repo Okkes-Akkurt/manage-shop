@@ -4,13 +4,23 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
+initialValues = {
+	id: '',
+	storeName: '',
+	country: '',
+	state: '',
+	address: '',
+	phone: '',
+	discountRate: '',
+	primeRate: '',
+	description: '',
+};
 
 
+	let storedData = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
 
-	const storedData = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
 
-
-	const [stores, setStores] = useState(initialState.storedData);
+	const [stores, setStores] = useState(initialValues);
 	const [selectedStore, setSelectedStore] = useState(null);
 	const [updatedStore, setUpdatedStore] = useState(selectedStore);
 	const [successMessage, setSuccessMessage] = useState('');
@@ -24,8 +34,8 @@ const Home = () => {
 	const [ filterPrimeRate, setFilterPrimeRate ] = useState('');
 
 	useEffect(() => {
-		storedStores = JSON.parse(localStorage.getItem('stores')) || [];
-		setStores(storedStores);
+		 storedData = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
+		setStores(storedData);
 	}, [stores]);
 
 	const handleDelete = (storeId) => {
