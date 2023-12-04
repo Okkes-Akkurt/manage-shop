@@ -34,8 +34,11 @@ const initialValues = {
 
 	useEffect(() => {
 		const storedData = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('stores'));
-		setStores(storedData);
-	}, [stores]);
+		if (storedData !== null) {
+			setStores(storedData);
+		}
+	}, []);
+
 
 	const handleDelete = (storeId) => {
 		const updatedStores = stores.filter((store) => store.id !== storeId);
