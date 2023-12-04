@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
-initialValues = {
+const initialValues = {
 	id: '',
 	storeName: '',
 	country: '',

@@ -10,7 +10,7 @@ const AddStore = () => {
 
 	let storedStores = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
 
-	initialValues= {
+	const initialValues= {
 			id: '',
 			storeName: '',
 			country: '',
