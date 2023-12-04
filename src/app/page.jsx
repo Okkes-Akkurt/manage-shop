@@ -4,17 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Home =  async() => {
-const initialValues = {
-	id: 'magaza',
-	storeName: 'magaza',
-	country: 'magaza',
-	state: 'magaza',
-	address: 'magaza',
-	phone: 'magaza',
-	discountRate: 'magaza',
-	primeRate: 'magaza',
-	description: '',
-};
+
 
 
 

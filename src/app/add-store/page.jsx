@@ -5,17 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const AddStore = async() => {
-	const initialValues = {
-		id: 'magaza',
-		storeName: 'magaza',
-		country: 'magaza',
-		state: 'magaza',
-		address: 'magaza',
-		phone: 'magaza',
-		discountRate: 'magaza',
-		primeRate: 'magaza',
-		description: '',
-	};
+
 
 
 	const [stores, setStores] = useState([]);
@@ -60,14 +50,14 @@ const AddStore = async() => {
 
 	const formik = useFormik({
 		initialValues: {
-			id: '1',
-			storeName: 'magaza',
-			country: 'magaza',
-			state: 'magaza',
-			address: 'magaza',
-			phone: 'magaza',
-			discountRate: 'magaza',
-			primeRate: 'magaza',
+			id: '',
+			storeName: '',
+			country: '',
+			state: '',
+			address: '',
+			phone: '',
+			discountRate: '',
+			primeRate: '',
 			description: '',
 		},
 		validationSchema: Yup.object({
