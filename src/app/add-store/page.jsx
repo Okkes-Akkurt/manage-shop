@@ -25,7 +25,7 @@ const AddStore = () => {
 	const [ stores, setStores ] = useState(initialValues);
 
 	useEffect(() => {
-		const storedStores = JSON.parse(localStorage.getItem('stores')) || initialValues;
+		const storedStores = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('stores'));
 		setStores(storedStores);
 
 	}, [stores])
@@ -295,7 +295,7 @@ const AddStore = () => {
 				</form>
 
 				<p className='mt-4 text-center md:text-left'>
-					<Link href='http://localhost:3000'>
+					<Link href='/'>
 						<button className='text-blue-500 hover:underline'>Mağaza Listesi</button>
 					</Link>
 				</p>
