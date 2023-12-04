@@ -72,7 +72,7 @@ const initialValues = {
 		}, 2000);
 	};
 
-	
+
 
 	const filteredStores = stores?.filter((store) => {
 		return (
@@ -184,7 +184,7 @@ const initialValues = {
 						</tr>
 					</thead>
 					<tbody>
-						{filteredStores.map((store, i) => (
+						{filteredStores ?.map((store, i) => (
 							<tr
 								id={i}
 								key={i}
