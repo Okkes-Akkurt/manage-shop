@@ -87,7 +87,7 @@ const AddStore = async() => {
 		validateOnChange: false,
 	});
 
-	const stateOptions = await [...new Set([...stores?.map((store) => store.state), formik.values.state])]?.filter(Boolean);
+	const stateOptions = await [...new Set([...stores.map((store) => store.state), formik.values.state])]?.filter(Boolean);
 
 
 	const handleStateChange = (selectedState) => {
