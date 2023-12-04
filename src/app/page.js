@@ -60,7 +60,7 @@ const initialValues = {
 	};
 
 	const handleSaveStore = () => {
-		const updatedStores = stores?.map((store) => (store.id === updatedStore.id ? updatedStore : store));
+		const updatedStores = stores.map((store) => (store.id === updatedStore.id ? updatedStore : store));
 		localStorage.setItem('stores', JSON.stringify(updatedStores));
 		setStores(updatedStores);
 		setSelectedStore(null);
@@ -186,7 +186,7 @@ const initialValues = {
 						</tr>
 					</thead>
 					<tbody>
-						{filteredStores?.map((store, i) => (
+						{filteredStores.map((store, i) => (
 							<tr
 								id={i}
 								key={i}

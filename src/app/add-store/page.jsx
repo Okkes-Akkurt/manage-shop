@@ -87,7 +87,7 @@ const AddStore = () => {
 		validateOnChange: false,
 	});
 
-	const stateOptions = [...new Set([...stores?.map((store) => store.state), formik.values.state])].filter(Boolean);
+	const stateOptions = [...new Set([...stores.map((store) => store.state), formik.values.state])].filter(Boolean);
 
 
 	const handleStateChange = (selectedState) => {
@@ -160,7 +160,7 @@ const AddStore = () => {
 									disabled>
 									Select a state
 								</option>
-								{stateOptions?.map((state) => (
+								{stateOptions.map((state) => (
 									<option
 										key={state}
 										value={state}>
