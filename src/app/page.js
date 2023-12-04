@@ -44,7 +44,7 @@ const Home = () => {
 	};
 
 	const handleSaveStore = () => {
-		const updatedStores = stores.map((store) => (store.id === updatedStore.id ? updatedStore : store));
+		const updatedStores = stores?.map((store) => (store.id === updatedStore.id ? updatedStore : store));
 		localStorage.setItem('stores', JSON.stringify(updatedStores));
 		setStores(updatedStores);
 		setSelectedStore(null);
