@@ -19,7 +19,7 @@ const initialValues = {
 
 
 
-	const [stores, setStores] = useState(initialValues);
+	const [stores, setStores] = useState([]);
 	const [selectedStore, setSelectedStore] = useState(null);
 	const [updatedStore, setUpdatedStore] = useState(selectedStore);
 	const [successMessage, setSuccessMessage] = useState('');
