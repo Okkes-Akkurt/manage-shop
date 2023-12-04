@@ -160,7 +160,7 @@ const AddStore = () => {
 									disabled>
 									Select a state
 								</option>
-								{stateOptions?.map((state) => (
+								{stateOptions.map((state) => (
 									<option
 										key={state}
 										value={state}>
