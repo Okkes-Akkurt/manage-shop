@@ -42,7 +42,6 @@ const AddStore = () => {
 			});
 			console.log('One store added:', valuesWithId);
 			alert('Bir mağaza eklendi.');
-			formik.resetForm();
 		}
 	};
 
@@ -69,9 +68,12 @@ const AddStore = () => {
 			primeRate: Yup.number().required('Prime rate is required').positive('Prime rate must be positive'),
 			description: Yup.string(),
 		}),
-		onSubmit: () => {},
+		onSubmit: () => {
+			formik.resetForm();
+			handleOutsideSubmit(values);
+		},
 		validateOnBlur: false,
-		validateOnChange: false,
+		validateOnChange:false
 	});
 
 	const stateOptions = [...new Set([...stores.map((store) => store.state), formik.values.state])].filter(Boolean);
