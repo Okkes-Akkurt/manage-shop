@@ -274,7 +274,7 @@ const AddStore = () => {
 				</form>
 
 				<p className='mt-4 text-center md:text-left'>
-					<Link href='/'>
+					<Link href='http://localhost:3000'>
 						<button className='text-blue-500 hover:underline'>Mağaza Listesi</button>
 					</Link>
 				</p>

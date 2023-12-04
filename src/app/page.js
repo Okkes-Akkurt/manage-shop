@@ -344,7 +344,7 @@ const Home = () => {
 				)}
 
 				<p className='mt-4'>
-					<Link href='/add-store'>
+					<Link href='http://localhost:3000/add-store'>
 						<button className='bg-blue-500 text-white px-4 py-2 rounded-md transition duration-300 ease-in-out hover:bg-blue-600 hover:shadow-md'>
 							Mağaza Ekle
 						</button>
