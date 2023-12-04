@@ -7,12 +7,13 @@ import { useState } from 'react';
 const AddStore = () => {
 
 
-	if (typeof window !== 'undefined') {
-		var storedStores = JSON.parse(localStorage.getItem('stores')) || [];
-	}
+	
+	const initialState = {
+		storedStores: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')): false,
+	};
 
 
-	const [ stores, setStores ] = useState(storedStores);
+	const [ stores, setStores ] = useState(initialState.storedStores);
 
 
 	const handleOutsideSubmit = (values, e) => {
@@ -70,7 +71,7 @@ const AddStore = () => {
 		validateOnChange: false,
 	});
 
-	const stateOptions = [...new Set([...stores?.map((store) => store.state), formik.values.state])].filter(Boolean);
+	const stateOptions = [...new Set([...stores.map((store) => store.state), formik.values.state])].filter(Boolean);
 
 
 	const handleStateChange = (selectedState) => {

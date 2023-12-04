@@ -5,10 +5,13 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
 
-	if (typeof window !== 'undefined') {
-		var storedData = JSON.parse(localStorage.getItem('stores')) || [];
-	}
-	const [stores, setStores] = useState(storedData);
+
+
+	const initialState = {
+		storedData: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : false,
+	};
+	
+	const [stores, setStores] = useState(initialState.storedData);
 	const [selectedStore, setSelectedStore] = useState(null);
 	const [updatedStore, setUpdatedStore] = useState(selectedStore);
 	const [successMessage, setSuccessMessage] = useState('');
