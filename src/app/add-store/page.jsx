@@ -7,9 +7,9 @@ import { useState } from 'react';
 const AddStore = () => {
 
 
-	
+
 	const initialState = {
-		storedStores: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')): false,
+		storedStores: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')): [],
 	};
 
 

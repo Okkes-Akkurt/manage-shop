@@ -8,9 +8,9 @@ const Home = () => {
 
 
 	const initialState = {
-		storedData: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : false,
+		storedData: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [],
 	};
-	
+
 	const [stores, setStores] = useState(initialState.storedData);
 	const [selectedStore, setSelectedStore] = useState(null);
 	const [updatedStore, setUpdatedStore] = useState(selectedStore);
