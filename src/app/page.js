@@ -7,9 +7,8 @@ const Home = () => {
 
 
 
-	const initialState = {
-		storedData: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [],
-	};
+	const storedData = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
+
 
 	const [stores, setStores] = useState(initialState.storedData);
 	const [selectedStore, setSelectedStore] = useState(null);
@@ -22,7 +21,12 @@ const Home = () => {
 	const [filterAddress, setFilterAddress] = useState('');
 	const [filterPhone, setFilterPhone] = useState('');
 	const [filterDiscountRate, setFilterDiscountRate] = useState('');
-	const [filterPrimeRate, setFilterPrimeRate] = useState('');
+	const [ filterPrimeRate, setFilterPrimeRate ] = useState('');
+
+	useEffect(() => {
+		storedStores = JSON.parse(localStorage.getItem('stores')) || [];
+		setStores(storedStores);
+	}, [stores]);
 
 	const handleDelete = (storeId) => {
 		const updatedStores = stores.filter((store) => store.id !== storeId);

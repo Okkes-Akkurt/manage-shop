@@ -8,12 +8,29 @@ const AddStore = () => {
 
 
 
-	const initialState = {
-		storedStores: typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')): [],
-	};
+	const storedStores = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('stores')) : [];
+
+	initialValues= {
+			id: '',
+			storeName: '',
+			country: '',
+			state: '',
+			address: '',
+			phone: '',
+			discountRate: '',
+			primeRate: '',
+			description: '',
+		}
 
 
-	const [ stores, setStores ] = useState(initialState.storedStores);
+	const [ stores, setStores ] = useState(initialValues);
+
+	useEffect(() => {
+		storedStores = JSON.parse(localStorage.getItem('stores')) || [];
+		setStores(storedStores);
+
+	}, [stores])
+
 
 
 	const handleOutsideSubmit = (values, e) => {
