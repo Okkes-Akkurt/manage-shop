@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const AddStore = () => {
+const AddStore = async() => {
 
 
 
@@ -42,7 +42,7 @@ const AddStore = () => {
 			id: newId,
 		};
 
-		const isStoreExist = stores.some((store) => store.storeName === values.storeName);
+		const isStoreExist =  stores.some((store) => store.storeName === values.storeName);
 
 		if (isStoreExist) {
 			console.log('Store already exists!');
@@ -87,7 +87,7 @@ const AddStore = () => {
 		validateOnChange: false,
 	});
 
-	const stateOptions = [...new Set([...stores?.map((store) => store.state), formik.values.state])]?.filter(Boolean);
+	const stateOptions = await [...new Set([...stores?.map((store) => store.state), formik.values.state])]?.filter(Boolean);
 
 
 	const handleStateChange = (selectedState) => {

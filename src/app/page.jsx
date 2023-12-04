@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const Home = () => {
+const Home =  async() => {
 const initialValues = {
 	id: 'magaza',
 	storeName: 'magaza',
@@ -72,9 +72,7 @@ const initialValues = {
 		}, 2000);
 	};
 
-	useEffect(() => {
-		localStorage.setItem('stores', JSON.stringify(stores));
-	}, [stores]);
+	
 
 	const filteredStores = stores?.filter((store) => {
 		return (
