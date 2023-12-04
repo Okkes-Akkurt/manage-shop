@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
 const initialValues = {
-	id: '',
-	storeName: '',
-	country: '',
-	state: '',
-	address: '',
-	phone: '',
-	discountRate: '',
-	primeRate: '',
+	id: 'magaza',
+	storeName: 'magaza',
+	country: 'magaza',
+	state: 'magaza',
+	address: 'magaza',
+	phone: 'magaza',
+	discountRate: 'magaza',
+	primeRate: 'magaza',
 	description: '',
 };
 

@@ -63,14 +63,14 @@ const AddStore = () => {
 
 	const formik = useFormik({
 		initialValues: {
-			id: '',
-			storeName: '',
-			country: '',
-			state: '',
-			address: '',
-			phone: '',
-			discountRate: '',
-			primeRate: '',
+			id: '1',
+			storeName: 'magaza',
+			country: 'magaza',
+			state: 'magaza',
+			address: 'magaza',
+			phone: 'magaza',
+			discountRate: 'magaza',
+			primeRate: 'magaza',
 			description: '',
 		},
 		validationSchema: Yup.object({
