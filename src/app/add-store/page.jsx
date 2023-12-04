@@ -22,6 +22,14 @@ const AddStore = () => {
 	const handleOutsideSubmit = (values, e) => {
 		e.preventDefault();
 
+		const isEmptyInput = Object.values(values).some((value) => !value);
+
+		if (isEmptyInput) {
+			console.log('Lütfen tüm alanları doldurun!');
+			alert('Lütfen tüm alanları doldurun!');
+			return;
+		}
+
 		const newId = stores.length;
 
 		const valuesWithId = {
@@ -29,10 +37,10 @@ const AddStore = () => {
 			id: newId,
 		};
 
-		const isStoreExist =  stores.some((store) => store.storeName === values.storeName);
+		const isStoreExist = stores.some((store) => store.storeName === values.storeName);
 
 		if (isStoreExist) {
-			console.log('Store already exists!');
+			console.log('Mağaza zaten mevcut!');
 			alert('Bu mağaza zaten var!');
 		} else {
 			setStores((prevStores) => {
@@ -40,10 +48,12 @@ const AddStore = () => {
 				localStorage.setItem('stores', JSON.stringify(updatedStores));
 				return updatedStores;
 			});
-			console.log('One store added:', valuesWithId);
+			console.log('Bir mağaza eklendi:', valuesWithId);
 			alert('Bir mağaza eklendi.');
+			formik.resetForm();
 		}
 	};
+
 
 
 	const formik = useFormik({
