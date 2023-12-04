@@ -22,7 +22,9 @@ const AddStore = () => {
 	const handleOutsideSubmit = (values, e) => {
 		e.preventDefault();
 
-		if (Object.keys(formik.errors).length === 0) {
+		formik.handleSubmit();
+
+		if (formik.isValid) {
 			const newId = stores.length;
 
 			const valuesWithId = {
@@ -50,6 +52,7 @@ const AddStore = () => {
 			alert('Lütfen tüm alanları doldurun!');
 		}
 	};
+
 
 
 
