@@ -74,7 +74,7 @@ const initialValues = {
 
 
 
-	const filteredStores = stores?.filter((store) => {
+	const filteredStores = stores.filter((store) => {
 		return (
 			store.storeName.toLowerCase().includes(filterStoreName.toLowerCase()) &&
 			store.country.toLowerCase().includes(filterCountry.toLowerCase()) &&

@@ -18,13 +18,15 @@ const AddStore = async() => {
 	};
 
 
-	const [ stores, setStores ] = useState(initialValues);
+	const [stores, setStores] = useState([]);
 
 	useEffect(() => {
 		const storedStores = typeof window !== 'undefined' && JSON.parse(window.localStorage.getItem('stores'));
-		setStores(storedStores);
+		if (Array.isArray(storedStores)) {
+			setStores(storedStores);
+		}
+	}, []);
 
-	}, [stores])
 
 
 
