@@ -31,7 +31,7 @@ const AddStore = () => {
 		if (isStoreExist) {
 			console.log('Mağaza zaten mevcut!');
 			alert('Bu mağaza zaten var!');
-		} else {
+		} else if (values.storeName !=='') {
 			setStores((prevStores) => {
 				const updatedStores = [...prevStores, valuesWithId];
 				localStorage.setItem('stores', JSON.stringify(updatedStores));
@@ -40,6 +40,9 @@ const AddStore = () => {
 			console.log('Bir mağaza eklendi:', valuesWithId);
 			alert('Bir mağaza eklendi.');
 			formik.resetForm();
+		} else {
+			alert('Tüm gerekli alanları doldurun.');
+
 		}
 	};
 
