@@ -22,37 +22,36 @@ const AddStore = () => {
 	const handleOutsideSubmit = (values, e) => {
 		e.preventDefault();
 
-		const isEmptyInput = Object.values(values).some((value) => !value);
+		if (Object.keys(formik.errors).length === 0) {
+			const newId = stores.length;
 
-		if (isEmptyInput) {
+			const valuesWithId = {
+				...values,
+				id: newId,
+			};
+
+			const isStoreExist = stores.some((store) => store.storeName === values.storeName);
+
+			if (isStoreExist) {
+				console.log('Mağaza zaten mevcut!');
+				alert('Bu mağaza zaten var!');
+			} else {
+				setStores((prevStores) => {
+					const updatedStores = [...prevStores, valuesWithId];
+					localStorage.setItem('stores', JSON.stringify(updatedStores));
+					return updatedStores;
+				});
+				console.log('Bir mağaza eklendi:', valuesWithId);
+				alert('Bir mağaza eklendi.');
+				formik.resetForm();
+			}
+		} else {
 			console.log('Lütfen tüm alanları doldurun!');
 			alert('Lütfen tüm alanları doldurun!');
-			return;
-		}
-
-		const newId = stores.length;
-
-		const valuesWithId = {
-			...values,
-			id: newId,
-		};
-
-		const isStoreExist = stores.some((store) => store.storeName === values.storeName);
-
-		if (isStoreExist) {
-			console.log('Mağaza zaten mevcut!');
-			alert('Bu mağaza zaten var!');
-		} else {
-			setStores((prevStores) => {
-				const updatedStores = [...prevStores, valuesWithId];
-				localStorage.setItem('stores', JSON.stringify(updatedStores));
-				return updatedStores;
-			});
-			console.log('Bir mağaza eklendi:', valuesWithId);
-			alert('Bir mağaza eklendi.');
-			formik.resetForm();
 		}
 	};
+
+
 
 
 
@@ -69,22 +68,23 @@ const AddStore = () => {
 			description: '',
 		},
 		validationSchema: Yup.object({
-			storeName: Yup.string().required('Store name is required'),
-			country: Yup.string().required('Country is required'),
-			state: Yup.string().required('State is required'),
-			address: Yup.string().required('Address is required'),
-			phone: Yup.string().required('Phone number is required'),
-			discountRate: Yup.number().required('Discount rate is required').positive('Discount rate must be positive'),
-			primeRate: Yup.number().required('Prime rate is required').positive('Prime rate must be positive'),
+			storeName: Yup.string().required('Mağaza adı zorunlu'),
+			country: Yup.string().required('Ülke zorunlu'),
+			state: Yup.string().required('Eyalet zorunlu'),
+			address: Yup.string().required('Adres zorunlu'),
+			phone: Yup.string().required('Telefon numarası zorunlu'),
+			discountRate: Yup.number().required('İndirim oranı zorunlu').positive('İndirim oranı pozitif olmalı'),
+			primeRate: Yup.number().required('Prim oranı zorunlu').positive('Prim oranı pozitif olmalı'),
 			description: Yup.string(),
 		}),
-		onSubmit: () => {
-			formik.resetForm();
+		onSubmit: (values) => {
 			handleOutsideSubmit(values);
+
 		},
 		validateOnBlur: false,
 		validateOnChange:false
 	});
+
 
 	const stateOptions = [...new Set([...stores.map((store) => store.state), formik.values.state])].filter(Boolean);
 
