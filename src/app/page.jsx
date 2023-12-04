@@ -80,12 +80,12 @@ const Home =  () => {
 	});
 
 	return (
-		<div className='w-full p-20 min-w-full'>
+		<div className='p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 min-w-full'>
 			{successMessage && (
 				<div className='bg-green-500 text-white text-center p-2 mb-4 rounded'>{successMessage}</div>
 			)}
-			<div className='flex flex-col items-center min-w-full '>
-				<table className='min-w-full text-left text-sm font-light bg-white border border-gray-200 table-fixed'>
+			<div className='flex flex-col items-center min-w-full overflow-x-auto'>
+				<table className='min-w-full text-left text-sm font-light bg-white border border-gray-200'>
 					<thead>
 						<tr>
 							<th className='p-3 border-b'>
