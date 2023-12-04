@@ -9,17 +9,17 @@ const AddStore = () => {
 
 
 
-	const initialValues= {
-			id: '',
-			storeName: '',
-			country: '',
-			state: '',
-			address: '',
-			phone: '',
-			discountRate: '',
-			primeRate: '',
-			description: '',
-		}
+	const initialValues = {
+		id: 'magaza',
+		storeName: 'magaza',
+		country: 'magaza',
+		state: 'magaza',
+		address: 'magaza',
+		phone: 'magaza',
+		discountRate: 'magaza',
+		primeRate: 'magaza',
+		description: '',
+	};
 
 
 	const [ stores, setStores ] = useState(initialValues);
